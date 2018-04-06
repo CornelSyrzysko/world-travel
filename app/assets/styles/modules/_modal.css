@@ -24,7 +24,7 @@
     transform: translateY(-50%);
   }
 
-  &--discription{
+  &__description{
     text-align: center;
     font-size: 1.3rem;
     font-weight: 300;

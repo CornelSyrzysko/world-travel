@@ -22,9 +22,8 @@ class RevealOnScroll{
         handler: function(){
           $(currentItem).addClass("reveal-item--is-visible");
         },
-        offset: that.offsetPercentage 
+        offset: that.offsetPercentage
       });
-    //  alert("testing");
     });
   }
 }

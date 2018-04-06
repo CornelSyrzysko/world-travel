@@ -11143,13 +11143,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var MobileMenu = function () {
-  /*constructor(){
-    $(".site-header__menu-icon").click(function(){
-      this.menuContent.toggleClass("site-header__menu-content--is-visible");
-      console.log("hi there")
-    })
-  }*/
-
   function MobileMenu() {
     _classCallCheck(this, MobileMenu);
 
@@ -11170,7 +11163,6 @@ var MobileMenu = function () {
       this.menuContent.toggleClass("site-header__menu-content--is-visible");
       this.siteHeader.toggleClass("site-header--is-expanded");
       this.menuIcon.toggleClass("site-header__menu-icon--close-x");
-      console.log("hi there");
     }
   }]);
 
@@ -11232,7 +11224,6 @@ var RevealOnScroll = function () {
           },
           offset: that.offsetPercentage
         });
-        //  alert("testing");
       });
     }
   }]);
@@ -11289,7 +11280,7 @@ var StickyHeader = function () {
   _createClass(StickyHeader, [{
     key: 'refreshWaypoints',
     value: function refreshWaypoints() {
-      this.lazyImages.on('load', function () {
+      this.lazyImages.load(function () {
         Waypoint.refreshAll();
       });
     }
@@ -11303,7 +11294,7 @@ var StickyHeader = function () {
     value: function createHeaderWaypoint() {
       var that = this;
       new Waypoint({
-        element: this.headerTrigger[0],
+        element: this.headerTriggerElement[0],
         handler: function handler() {
           if (direction == "down") {
             that.siteHeader.addClass("site-header--dark");
@@ -11743,26 +11734,28 @@ var Modal = function () {
   function Modal() {
     _classCallCheck(this, Modal);
 
-    this.openModalB = (0, _jquery2.default)("open-modal");
+    this.openModalButton = (0, _jquery2.default)(".open-modal");
     this.modal = (0, _jquery2.default)(".modal");
-    this.closeModalB = (0, _jquery2.default)(".modal__close");
+    this.closeModalButton = (0, _jquery2.default)(".modal__close");
     this.events();
   }
 
   _createClass(Modal, [{
     key: "events",
     value: function events() {
-      // clicking the  open modal button
-      this.openModalB.click(this.openModal.bind(this));
-      //cliking the close modal button
-      this.closeModalB.click(this.closeModal.bind(this));
-      //pushes any key
+      // clicking the open modal button
+      this.openModalButton.click(this.openModal.bind(this));
+
+      // clicking the x close modal button
+      this.closeModalButton.click(this.closeModal.bind(this));
+
+      // push the escape key
       (0, _jquery2.default)(document).keyup(this.keyPressHandler.bind(this));
     }
   }, {
     key: "keyPressHandler",
-    value: function keyPressHandler(esc) {
-      if (esc.keyCode == 27) {
+    value: function keyPressHandler(e) {
+      if (e.keyCode == 27) {
         this.closeModal();
       }
     }
