@@ -8,12 +8,12 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "./app/temp/scripts"),
     filename: "[name].js"
-  }/*,
+  },
   module:{
-    rules: [
+    loaders: [
       {
       //  enforce: 'pre',
-        rule : 'babel-loader',
+        loader : 'babel-loader',
         query:{
           presets: ['es2015']
         },
@@ -21,5 +21,5 @@ module.exports = {
         exclude: /node_modules/
       }
     ]
-  }*/
+  }
 }

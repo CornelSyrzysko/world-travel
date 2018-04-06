@@ -1,7 +1,7 @@
 import MobileMenu from './modules/MobileMenu.js';
 import RevealOnScroll from './modules/RevealOnScroll';
 import $ from 'jquery';
-import StickyHeader form './modules/StickyHeader';
+import StickyHeader from './modules/StickyHeader';
 import Modal from './modules/Modal';
 
 var mobileMenu = new MobileMenu();
